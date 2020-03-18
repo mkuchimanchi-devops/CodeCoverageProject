@@ -1,0 +1,21 @@
+pipeline {
+   agent any
+
+   stages {
+      stage('Pull Code') {
+         steps {
+            git changelog: false, credentialsId: 'cc3e65fd-5568-48fc-a0af-f73c5ab96b87', poll: false, url: 'https://github.com/rkgithubprojects/testaccelerator.git'
+         }
+      }
+      stage('Build Web applicatin') {
+         steps {
+            bat label: '', script: 'mvn clean install'
+         }
+      }
+      stage('Send Email') {
+         steps {
+            mail bcc: '', body: 'Web Application is built successfully', cc: 'kumchanadra@gmail.com', from: '', replyTo: '', subject: 'Job is successful', to: 'shravyay14cs861@gmail.com'
+         }
+      }
+   }
+}
