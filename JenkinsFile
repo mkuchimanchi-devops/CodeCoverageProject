@@ -14,7 +14,7 @@ pipeline {
       }
       stage('Send Email') {
          steps {
-            mail bcc: '', body: 'Web Application is built successfully', cc: 'kumchanadra@gmail.com', from: '', replyTo: '', subject: 'Job is successful', to: 'shravyay14cs861@gmail.com'
+            mail bcc: '', body: 'Web Application is built successfully', cc: 'kumchanadra@gmail.com', from: 'DevOps@cignit.com', replyTo: '', subject: 'Job is successful', to: 'shravyay14cs861@gmail.com'
          }
       }
    }
